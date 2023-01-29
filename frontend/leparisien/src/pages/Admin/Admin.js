@@ -1,4 +1,4 @@
-//import Resume from '../../components/Resume/Resume'
+import Resum from '../../components/Resum/Resum'
 import { useFetch } from '../../utils/Hooks/Hooks'
 
 
@@ -16,14 +16,9 @@ function Admin() {
                     {isLoading ? (
                         <div className='loader'></div>
                     ) : (
-                        <div>
-                            <h2>Créer un article</h2>
-                            <form>
-                                <input type="text" /><br />
-                                <textarea></textarea><br />
-                                <button type="button">Créer un article</button>
-                            </form>
-                        </div>
+                        data.map((element) => (
+                            <Resum key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
+                        ))
 
                     )}
                 </section>

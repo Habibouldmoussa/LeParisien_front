@@ -1,4 +1,4 @@
-import Resume from '../../components/Resum/Resum'
+import Resum from '../../components/Resum/Resum'
 import { useFetch } from '../../utils/Hooks/Hooks'
 
 
@@ -17,7 +17,7 @@ function Home() {
                         <div className='loader'></div>
                     ) : (
                         data.map((element) => (
-                            <Resume key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
+                            <Resum key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
                         ))
 
                     )}

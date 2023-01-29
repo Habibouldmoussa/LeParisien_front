@@ -23,7 +23,7 @@ function Article() {
                     <div>
                         <div  >
                             <h1>{dataLog.title}</h1>
-                            <p>{dataLog.location}</p>
+                            <p>{dataLog.body}</p>
                         </div>
                         <div className="" >
                             <div className="" >
