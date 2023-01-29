@@ -1,7 +1,7 @@
 import Resume from '../../components/Resum/Resum'
 import { useFetch } from '../../utils/Hooks/Hooks'
 
-//Integration du banner et les cards des logomeents 
+
 function Home() {
     const { isLoading, data, error } = useFetch('http://localhost:4200/articles/');
     if (error) {
@@ -17,7 +17,7 @@ function Home() {
                         <div className='loader'></div>
                     ) : (
                         data.map((element) => (
-                            <Resume key={element.id} id={element.id} title={element.title} cover={element.cover} />
+                            <Resume key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
                         ))
 
                     )}

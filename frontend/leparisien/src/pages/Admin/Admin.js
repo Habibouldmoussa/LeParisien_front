@@ -3,7 +3,7 @@ import { useFetch } from '../../utils/Hooks/Hooks'
 
 
 function Admin() {
-    const { isLoading, data, error } = useFetch('http://localhost:4200/article/');
+    const { isLoading, data, error } = useFetch('http://localhost:4200/articles/');
     if (error) {
         return <span>Oups il y a eu un problème</span>
     }
@@ -16,7 +16,14 @@ function Admin() {
                     {isLoading ? (
                         <div className='loader'></div>
                     ) : (
-                        <p>{data.title}</p>
+                        <div>
+                            <h2>Créer un article</h2>
+                            <form>
+                                <input type="text" /><br />
+                                <textarea></textarea><br />
+                                <button type="button">Créer un article</button>
+                            </form>
+                        </div>
 
                     )}
                 </section>
