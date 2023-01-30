@@ -1,0 +1,28 @@
+@import "./../../node_modules/normalize-scss/sass/_normalize.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+footer img {
+    max-width: 100%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
