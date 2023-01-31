@@ -6,8 +6,8 @@ function Article() {
     const { id } = useParams()
 
     //Récuperation du Article par son id
-    let { isLoadingLog, dataLog, errorLog } = useFinditem('http://localhost:4200/articles', id)
-    if (errorLog) {
+    let { isLoadingArt, dataArt, errorArt } = useFinditem('http://localhost:4200/articles', id)
+    if (errorArt) {
         return <span>Oups il y a eu un problème</span>
     }
 
@@ -15,21 +15,21 @@ function Article() {
     *et on affiche le loader en attendant les données  
     */
     return (
-        isLoadingLog ? (
+        isLoadingArt ? (
             <div className='loader'></div>
         ) : (
-            dataLog ? (
+            dataArt ? (
                 <main >
                     <div>
                         <div  >
-                            <h1>{dataLog.title}</h1>
-                            <p>{dataLog.body}</p>
+                            <h1>{dataArt.title}</h1>
+                            <p>{dataArt.body}</p>
                         </div>
                         <div className="" >
                             <div className="" >
-                                <p>{dataLog.host.name}</p>
+                                <p>{dataArt.host.name}</p>
                                 <div className="">
-                                    <img src={dataLog.host.picture} alt={dataLog.host.name} />
+                                    <img src={dataArt.host.picture} alt={dataArt.host.name} />
                                 </div>
                             </div>
                         </div>

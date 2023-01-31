@@ -30,31 +30,64 @@ export function useFetch(url) {
 }
 //ce hook est quand a lui destiné a récuperer un seul item de l'api
 export function useFinditem(url, id) {
-    const [dataLog, setDatalog] = useState({})
-    const [isLoadingLog, setLoadinglog] = useState(true)
-    const [errorLog, setErrorlog] = useState(false)
+    const [dataArt, setDataArt] = useState({})
+    const [isLoadingArt, setLoadingArt] = useState(true)
+    const [errorArt, setErrorArt] = useState(false)
 
     const { isLoading, data, error } = useFetch(url);
-    if (error) { setErrorlog(true) }
+    if (error) { setErrorArt(true) }
     useEffect(() => {
         if (!url) return
-        setLoadinglog(true)
+        setLoadingArt(true)
         async function getArticle() {
             if (!isLoading) {
                 try {
                     const response = await data.find(log => log.id === id)
-                    setDatalog(response)
+                    setDataArt(response)
                 } catch (err) {
                     console.log(err)
-                    setErrorlog(true)
+                    setErrorArt(true)
                 } finally {
-                    setLoadinglog(false)
+                    setLoadingArt(false)
                 }
             }
         }
         getArticle();
     }, [data, id, isLoading, url])
-    return { isLoadingLog, dataLog, errorLog }
+    return { isLoadingArt, dataArt, errorArt }
 }
+export function useCreatArticle(url, newArticle) {
+    const [message, setMessage] = useState({})
+    const [isLoading, setLoading] = useState(true)
+    const [error, setError] = useState(false)
+    //if (!url) { return }
+    isLoading(true)
+    // POST request using fetch with set headers
 
+    useEffect(() => {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + process.env.TOKEN_API,
+            },
+            body: JSON.stringify({ newArticle })
+        };
+
+        async function creat() {
+            try {
+                const response = await fetch(url, requestOptions);
+                const data = await response.json()
+                setMessage(data);
+            } catch (err) {
+                console.log(err)
+                setError(true)
+            } finally {
+                setLoading(false)
+            }
+        }
+        creat();
+    }, [newArticle, url])
+    return { isLoading, message, error }
+}
 
