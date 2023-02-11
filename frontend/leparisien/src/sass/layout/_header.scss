@@ -1,0 +1,14 @@
+.header {
+    width: 80%;
+    margin: auto;
+
+    &__nav {
+        @include flex(row);
+        justify-content: space-between;
+    }
+
+    &__menu li {
+        display: inline;
+        padding-left: 12px;
+    }
+}

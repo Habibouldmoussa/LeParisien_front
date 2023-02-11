@@ -1,4 +1,5 @@
 import Resum from '../../components/Resum/Resum'
+import { NavLink } from 'react-router-dom'
 import { useFetch } from '../../utils/Hooks/Hooks'
 
 
@@ -10,15 +11,18 @@ function Admin() {
 
     return (
         <div>
-            <main className="">
+            <main >
 
-                <section className="">
+                <section className="admin">
                     {isLoading ? (
                         <div className='loader'></div>
                     ) : (
-                        data.map((element) => (
-                            <Resum key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
-                        ))
+                        <div>
+                            <NavLink to="/AdminAdd" className="" > Ajouter un article</NavLink>
+                            {data.map((element) => (
+                                < Resum key={element._id} id={element._id} title={element.title} image={element.image} body={element.body} />
+                            ))}
+                        </div>
 
                     )}
                 </section>

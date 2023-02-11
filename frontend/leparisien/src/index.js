@@ -1,7 +1,7 @@
 //Importation des dépendances react
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import './index.css';
+import './sass/css/index.css';
 import Routing from './Routing'; //routage
 //Création du root dom
 const root = ReactDOM.createRoot(document.getElementById('root'));

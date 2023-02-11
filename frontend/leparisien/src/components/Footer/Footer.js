@@ -1,8 +1,9 @@
+import logo from '../../assets/logo.png'
 function Footer() {
 
     return (
-        <footer className="">
-            <img src="" alt="logo" />
+        <footer className="footer">
+            <img src={logo} alt="logo" className='footer__logo' />
             <p></p>
         </footer>
     )

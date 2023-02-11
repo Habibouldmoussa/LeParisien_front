@@ -19,23 +19,12 @@ function Article() {
             <div className='loader'></div>
         ) : (
             dataArt ? (
-                <main >
-                    <div>
-                        <div  >
-                            <h1>{dataArt.title}</h1>
-                            <p>{dataArt.body}</p>
-                        </div>
-                        <div className="" >
-                            <div className="" >
-                                <p>{dataArt.host.name}</p>
-                                <div className="">
-                                    <img src={dataArt.host.picture} alt={dataArt.host.name} />
-                                </div>
-                            </div>
-                        </div>
+                <div>
+                    <h2 className='article__title'>{dataArt.title}</h2>
+                    <div className="article__image" >
+                        <img src={dataArt.image} alt={dataArt.title} />
                     </div>
-
-                </main>
+                </div>
             ) : (
                 <Navigate replace to="/404" />
             )))

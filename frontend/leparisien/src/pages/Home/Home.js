@@ -9,21 +9,20 @@ function Home() {
     }
 
     return (
-        <div>
-            <main className="">
+        <main className="">
 
-                <section className="">
-                    {isLoading ? (
-                        <div className='loader'></div>
-                    ) : (
-                        data.map((element) => (
-                            <Resum key={element.id} id={element.id} title={element.title} cover={element.cover} body={element.body} />
-                        ))
+            <section className="article">
+                {isLoading ? (
+                    <div className='loader'></div>
+                ) : (
+                    data.map((element) => (
+                        <Resum key={element._id} id={element._id} title={element.title} image={element.image} body={element.body} />
+                    ))
 
-                    )}
-                </section>
-            </main>
-        </div>
+                )}
+            </section>
+        </main>
+
     )
 }
 export default Home 

@@ -1,15 +1,16 @@
 
 //Importation des composants react
 import { NavLink } from 'react-router-dom'
+import logo from '../../assets/logo.png'
 //On integre les balises de navigation de react route 
 function Header() {
     return (
-        <header className="">
-            <nav className="">
+        <header className="header">
+            <nav className="header__nav">
                 <NavLink to="/" className="" >
-                    <img src="" alt="logo" className="" />
+                    <img src={logo} alt="logo" className="" />
                 </NavLink>
-                <ul className="">
+                <ul className="header__menu">
                     <NavLink to="/"  >
                         {({ isActive }) => (
                             <li className="">Accueil</li>
