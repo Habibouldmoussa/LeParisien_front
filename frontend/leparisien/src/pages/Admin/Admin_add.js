@@ -1,72 +1,69 @@
-//import Resume from '../../components/Resume/Resume'
-//import { useCreatArticle } from '../../utils/Hooks/Hooks'
 import { useState } from "react";
 import axios from 'axios';
-
+//import { useCreatArticle } from '../../utils/Hooks/Hooks'
+import { Navigate } from "react-router-dom"
 function AdminAdd() {
-    const [file, setFile] = useState();
+    //const [file, setFile] = useState();
     const [slug, setSlug] = useState();
-    const [title, setTitle] = useState();
+    const [Article, setArticle] = useState();
     const [formDate, setFromDate] = useState();
-    const [body, setBody] = useState();
-    const handleUploadClick = () => {
+
+    const token = localStorage.getItem('token');
+
+
+    const handleUploadClick = async e => {
+        e.preventDefault()
+        try {
+            const response = await axios.post('http://localhost:4200/articles', formDate, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'authorization': 'Bearer ' + token,
+                },
+            })
+            console.log(response);
+            window.location.href = "/Admin";
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+
+    const handleChangeArticle = async (e) => {
+
+        setArticle({ ...Article, [e.target.name]: e.target.value });
         let Data = new FormData();
+        if (e.target.name === 'title') {
+            setSlug(e.target.value.replaceAll(" ", "_"),);
+        } else if (e.target.name === 'image') {
+            //setFile(e.target.files[0])
+            Data.append("image", e.target.files[0]);
+        }
         const article = JSON.stringify({
-            "title": title,
-            "slug": slug,
-            "body": body,
+            ...Article,
+            "slug": slug
         });
         Data.append("Article", article);
-        Data.append("image", file);
 
-        setFromDate(Data)
-        console.log(formDate)
-        if (!file) {
-            return;
-        }
-        axios.post('http://localhost:4200/articles', formDate, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                // 'Authorization': 'bearer' + process.env.REACT_APP_TOKEN_API,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => console.log(data))
-            .catch((err) => console.error(err));
+        setFromDate(Data);
+
     };
-    const handleFileChange = (e) => {
-        if (e.target.files) {
-            setFile(e.target.files[0]);
-        }
-    };
-    const handleChangetitle = (value) => {
-        if (value) {
-            setTitle(value);
-            value = value.replaceAll(" ", "_");
-            setSlug(value)
-        }
-    };
-    const handleChangeBody = (value) => {
-        if (value) {
-            setBody(value);
-        }
-    };
-    return (
-        <div>
-            <main className="">
-                <section className="admin">
-                    <div>
-                        <h2>Créer un article</h2>
-                        <form>
-                            <label>Titre</label><input type="text" id="title" onChange={(e) => handleChangetitle(e.target.value)} /><br />
-                            <textarea id="body" onChange={(e) => handleChangeBody(e.target.value)} ></textarea><br />
-                            <input type="file" name="image" onChange={handleFileChange} /><br />
-                            <button type="button" onClick={() => handleUploadClick()}>Créer un article</button>
-                        </form>
-                    </div>
-                </section>
-            </main>
-        </div>
+    return (token ? (
+        <main className="">
+            <section className="admin">
+                <div>
+                    <h2>Créer un article</h2>
+                    <form onSubmit={handleUploadClick}>
+                        <label>Titre</label><input type="text" name="title" onChange={handleChangeArticle} /><br />
+                        <textarea name="body" onChange={handleChangeArticle} ></textarea><br />
+                        <input type="file" name="image" onChange={handleChangeArticle} /><br />
+                        <button type="submit" >Créer un article</button>
+                    </form>
+                </div>
+            </section>
+        </main >
+    ) : (
+        <Navigate replace to="/Admin" />
+    )
     )
 }
 export default AdminAdd 

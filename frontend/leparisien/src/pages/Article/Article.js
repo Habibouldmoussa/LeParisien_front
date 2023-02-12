@@ -19,11 +19,12 @@ function Article() {
             <div className='loader'></div>
         ) : (
             dataArt ? (
-                <div>
+                <div className='article'>
                     <h2 className='article__title'>{dataArt.title}</h2>
                     <div className="article__image" >
                         <img src={dataArt.image} alt={dataArt.title} />
                     </div>
+                    <p className='article__body'>{dataArt.body} </p>
                 </div>
             ) : (
                 <Navigate replace to="/404" />

@@ -1,13 +1,13 @@
-import Resum from '../../components/Resum/Resum'
+
+import { useParams } from 'react-router-dom';
 import { useFetch } from '../../utils/Hooks/Hooks'
-
-
-function Home() {
-    const { isLoading, data, error } = useFetch('http://localhost:4200/articles/');
+import Resum from '../../components/Resum/Resum'
+function Search() {
+    const { q } = useParams()
+    const { isLoading, data, error } = useFetch('http://localhost:4200/articles/q/' + q);
     if (error) {
         return <span>Oups il y a eu un problème</span>
     }
-
     return (
         <main className="">
             <section className="article">
@@ -23,4 +23,4 @@ function Home() {
 
     )
 }
-export default Home 
+export default Search 

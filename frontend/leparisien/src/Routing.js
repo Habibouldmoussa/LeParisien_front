@@ -7,8 +7,10 @@ import AdminModif from './pages/Admin/Admin_modif';
 import AdminAdd from './pages/Admin/Admin_add';
 import Error from './pages/Error/Error';
 import Article from './pages/Article/Article';
+import Search from './pages/Search/Search';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+
 
 //Routing
 function Routing() {
@@ -22,6 +24,7 @@ function Routing() {
                 <Route path='/Admin/Article/:id' element={<AdminModif />} />
                 <Route path='/Article/:id' element={<Article />} />
                 <Route path='/Article/*' element={<Error />} />
+                <Route path='/Recherche/:q' element={<Search />} />
                 <Route path='*' element={<Error />} />
             </Routes>
             <Footer />

@@ -1,14 +1,35 @@
 .header {
     width: 80%;
     margin: auto;
+    //margin-bottom: 30px;
 
     &__nav {
         @include flex(row);
         justify-content: space-between;
+        align-items: center;
+    }
+
+    &__menu {
+        //margin-top: 30px;
+
     }
 
     &__menu li {
         display: inline;
         padding-left: 12px;
+    }
+
+    &__menu {
+
+        &__item {
+
+            &-active {
+                text-decoration: underline;
+            }
+
+            &-logout {
+                cursor: pointer;
+            }
+        }
     }
 }

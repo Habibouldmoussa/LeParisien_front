@@ -1,5 +1,6 @@
 //Importation des composants react
 import { useEffect, useState } from "react";
+import axios from "axios";
 //import { useLocation } from "react-router-dom";
 //Le custom hook useFetch est utiliser pour consommé l'url de l'api 
 export function useFetch(url) {
@@ -42,7 +43,7 @@ export function useFinditem(url, id) {
         async function getArticle() {
             if (!isLoading) {
                 try {
-                    const response = await data.find(log => log.id === id)
+                    const response = await data.find(log => log._id === id)
                     setDataArt(response)
                 } catch (err) {
                     console.log(err)
@@ -57,28 +58,30 @@ export function useFinditem(url, id) {
     return { isLoadingArt, dataArt, errorArt }
 }
 export function useCreatArticle(url, newArticle) {
-    const [message, setMessage] = useState({})
+
+    const [dataArt, setDataArt] = useState({})
     const [isLoading, setLoading] = useState(true)
     const [error, setError] = useState(false)
-    //if (!url) { return }
+
     isLoading(true)
     // POST request using fetch with set headers
 
     useEffect(() => {
+        if (!url) { return }
+        const token = localStorage.getItem('token');
+
         const requestOptions = {
-            method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + process.env.TOKEN_API,
+                'Content-Type': 'multipart/form-data',
+                'authorization': 'Bearer ' + token,
             },
-            body: JSON.stringify({ newArticle })
         };
 
         async function creat() {
             try {
-                const response = await fetch(url, requestOptions);
+                const response = await axios.post(url, newArticle, requestOptions)
                 const data = await response.json()
-                setMessage(data);
+                setDataArt(data);
             } catch (err) {
                 console.log(err)
                 setError(true)
@@ -88,6 +91,6 @@ export function useCreatArticle(url, newArticle) {
         }
         creat();
     }, [newArticle, url])
-    return { isLoading, message, error }
+    return { isLoading, dataArt, error }
 }
 

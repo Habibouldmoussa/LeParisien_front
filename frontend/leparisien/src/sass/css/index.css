@@ -32,6 +32,11 @@ a {
   text-decoration: none;
 }
 
+main {
+  width: 80%;
+  margin: auto;
+}
+
 .admin {
   width: 80%;
   margin: auto;
@@ -45,10 +50,17 @@ a {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: center;
 }
 .header__menu li {
   display: inline;
   padding-left: 12px;
+}
+.header__menu__item-active {
+  text-decoration: underline;
+}
+.header__menu__item-logout {
+  cursor: pointer;
 }
 
 .article {
