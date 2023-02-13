@@ -1,22 +1,47 @@
 .header {
+
     width: 80%;
-    margin: auto;
-    //margin-bottom: 30px;
+    margin: 0 auto;
+
+
+    @include md(medium) {
+        width: 96%;
+    }
+
 
     &__nav {
         @include flex(row);
         justify-content: space-between;
-        align-items: center;
+        align-items: end;
+
+        @include md(medium) {
+            @include flex(column);
+        }
+
+        &__logo {
+            @include md(medium) {
+                width: 100%
+            }
+
+            img {
+                @include md(medium) {
+                    width: 100%
+                }
+            }
+        }
     }
 
     &__menu {
-        //margin-top: 30px;
+        margin-top: 20px;
+        color: $color_premary;
+        font-weight: bolder;
 
     }
 
     &__menu li {
         display: inline;
         padding-left: 12px;
+        color: $color_premary
     }
 
     &__menu {

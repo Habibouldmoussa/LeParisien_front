@@ -8,8 +8,8 @@ function AdminModif() {
     const [slug, setSlug] = useState();
     const [Article, setArticle] = useState();
     const [formDate, setFromDate] = useState();
-    const [title, setTitle] = useState();
-    const [body, setBody] = useState();
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
     //Récuperation de l'id de l'URL 
     const { id } = useParams()
     const token = localStorage.getItem('token');
@@ -58,16 +58,14 @@ function AdminModif() {
             {isLoadingArt ? (
                 <div className='loader'></div>
             ) : (dataArt || token ? (
-                <section className="admin">
-                    <div>
-                        <h2>Modifier un article</h2>
-                        <form onSubmit={handleUploadClick} className='admin__modif'>
-                            <label >Titre</label><input type="text" name="title" onChange={handleChangeArticle} value={title} /><br />
-                            <textarea name="body" onChange={handleChangeArticle} value={body} ></textarea><br />
-                            <input type="file" name="image" onChange={handleChangeArticle} /><br />
-                            <button type="submit" >Modifier cet article</button>
-                        </form>
-                    </div>
+                <section className="admin_modif">
+                    <h2>Modifier un article</h2>
+                    <form onSubmit={handleUploadClick} className='admin__modif'>
+                        <label >Titre</label><input type="text" name="title" onChange={handleChangeArticle} value={title} /><br />
+                        <textarea name="body" onChange={handleChangeArticle} value={body} rows="20"  ></textarea><br />
+                        <input type="file" name="image" onChange={handleChangeArticle} /><br />
+                        <button type="submit" >Modifier cet article</button>
+                    </form>
                 </section>
             ) : (
                 <Navigate replace to="/Admin" />

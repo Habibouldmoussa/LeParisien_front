@@ -1,16 +1,19 @@
 // @import 'abstracts/variables';
 
 @import 'abstracts/mixins';
+@import 'abstracts/variables';
 
 @import 'base/typography';
 @import 'base/reset';
 
-//@import 'components/buttons';
-//@import 'components/annimations';
+@import 'components/resum';
+@import 'components/login';
 
 @import 'pages/admin';
+@import 'pages/admin_add';
+@import 'pages/admin_modif';
 
 @import 'layout/header';
-//@import 'layout/menus';
+
 @import 'layout/article';
 @import 'layout/footer';

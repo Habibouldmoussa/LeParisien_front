@@ -1,0 +1,31 @@
+.admin_add {
+    margin: auto;
+    width: 50%;
+
+    @include md(medium) {
+        width: 90%;
+    }
+
+    input {
+
+        width: 100%;
+        margin-bottom: 12px;
+        height: 30px;
+    }
+
+    textarea {
+
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    button {
+        background-color: $color_premary;
+        color: white;
+        height: 30px;
+        cursor: pointer;
+        border: none;
+        width: 100%;
+    }
+
+}

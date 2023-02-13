@@ -10,7 +10,7 @@ function Home() {
 
     return (
         <main className="">
-            <section className="article">
+            <section className="home">
                 {isLoading ? (
                     <div className='loader'></div>
                 ) : (

@@ -36,13 +36,14 @@ function Admin() {
                     <div className='loader' ></div>
                 ) : (
                     <div>
-                        <Link to="/AdminAdd" className="" > Ajouter un article</Link>
+                        <Link to="/AdminAdd" className="admin__addart" > <i className="fa-solid fa-plus"></i> Ajouter un article</Link>
                         {data.map((element) => (
                             <div key={element._id} >
-                                <Link to={`/Admin/Article/${element._id}`} ><i class="fa-solid fa-pen"></i></Link>
-                                <button onClick={() => { deleteArticle(element._id) }}><i class="fa-solid fa-trash"></i></button>
                                 <Resum key={element._id} id={element._id} title={element.title} image={element.image} body={element.body} />
-
+                                <p className='admin__button'>
+                                    <button><Link to={`/Admin/Article/${element._id}`} ><i className="fa-solid fa-pen"></i></Link></button>
+                                    <button onClick={() => { deleteArticle(element._id) }} className="admin__button-sup"><i className="fa-solid fa-trash"></i></button>
+                                </p>
                             </div>
                         ))}
                     </div>

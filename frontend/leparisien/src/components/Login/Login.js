@@ -23,7 +23,8 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+
+        <form onSubmit={handleSubmit} className="login">
             <label>Login</label>
             <input
                 type="text"
@@ -36,8 +37,9 @@ const Login = () => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
             />
-            <button type="submit"> Log in </button>
+            <button type="submit" className="login__submit"> Log in </button>
         </form>
+
     );
 };
 export default Login

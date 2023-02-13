@@ -1,0 +1,22 @@
+.login {
+    @include flex(column);
+    width: 30%;
+    margin: auto;
+
+    @include md(medium) {
+        width: 90%;
+    }
+
+    input {
+        margin-bottom: 12px;
+        height: 30px;
+    }
+
+    &__submit {
+        margin-left: 0;
+        height: 30px;
+        background-color: $color_premary;
+        color: white;
+    }
+
+}

@@ -1,5 +1,29 @@
 .admin {
-    width: 80%;
-    margin: auto;
+    &__button {
+        position: relative;
+        float: right;
+        margin: -30px;
 
+        @include md(medium) {
+            margin-right: 15px;
+        }
+
+        &-sup {
+            color: red;
+        }
+
+    }
+
+    &__addart {
+        color: green;
+        font-weight: bold;
+
+        @include md(medium) {
+            margin-left: 15px;
+        }
+    }
+
+    &__button-sup {
+        margin-left: 12px;
+    }
 }

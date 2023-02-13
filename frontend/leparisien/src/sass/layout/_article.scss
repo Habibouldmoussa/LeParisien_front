@@ -2,7 +2,24 @@
     width: 80%;
     margin: auto;
 
+    @include md(medium) {
+        width: 90%;
+    }
+
     &__title {}
 
-    &__image {}
+    &__image {
+        width: 50%;
+        margin: auto;
+
+        @include md(medium) {
+            width: 100%;
+        }
+
+        img {
+            @include md(medium) {
+                width: 100%;
+            }
+        }
+    }
 }

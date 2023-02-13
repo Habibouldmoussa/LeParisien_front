@@ -4,7 +4,7 @@
     @each $breakpoints,
     $size in $media {
         @if $breakpoint==$breakpoints {
-            @media screen and (min-width: $size) {
+            @media screen and (max-width: $size) {
                 @content;
             }
         }

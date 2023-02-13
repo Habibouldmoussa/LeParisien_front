@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 //On récupere l'ID du article et on redirige vers le bon lien
 function Resum({ id, image, title, body }) {
     return (
-        <article className="resum">
-            <Link to={`/Article/${id}`} >
+        <article >
+            <Link to={`/Article/${id}`} className="resum" >
                 <img src={image} className="resum__image" alt={title} />
-                <p className="resum__title">{title}</p>
+                <div className="resum__text">
+                    <h2 className="resum__text__title">{title}</h2>
+                    <p className="resum__text__body" >{body}</p>
+                </div>
             </Link>
         </article>
     )

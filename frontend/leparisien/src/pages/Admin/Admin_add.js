@@ -27,7 +27,6 @@ function AdminAdd() {
         }
     };
 
-
     const handleChangeArticle = async (e) => {
 
         setArticle({ ...Article, [e.target.name]: e.target.value });
@@ -49,16 +48,14 @@ function AdminAdd() {
     };
     return (token ? (
         <main className="">
-            <section className="admin">
-                <div>
-                    <h2>Créer un article</h2>
-                    <form onSubmit={handleUploadClick}>
-                        <label>Titre</label><input type="text" name="title" onChange={handleChangeArticle} /><br />
-                        <textarea name="body" onChange={handleChangeArticle} ></textarea><br />
-                        <input type="file" name="image" onChange={handleChangeArticle} /><br />
-                        <button type="submit" >Créer un article</button>
-                    </form>
-                </div>
+            <section className="admin_add">
+                <h2>Créer un article</h2>
+                <form onSubmit={handleUploadClick}>
+                    <label>Titre</label><input type="text" name="title" onChange={handleChangeArticle} /><br />
+                    <textarea name="body" onChange={handleChangeArticle} rows="20"  ></textarea><br />
+                    <input type="file" name="image" onChange={handleChangeArticle} /><br />
+                    <button type="submit" >Créer un article</button>
+                </form>
             </section>
         </main >
     ) : (

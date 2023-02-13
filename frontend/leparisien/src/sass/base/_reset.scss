@@ -27,7 +27,23 @@ a {
     text-decoration: none;
 }
 
-main {
+section {
     width: 80%;
     margin: auto;
+
+    @include md(medium) {
+        width: 100%;
+    }
+}
+
+#root {
+    display: flex;
+    flex-flow: column wrap;
+    min-height: 100vh;
+    justify-content: space-between;
+
+    @include md(medium) {
+        display: block;
+        margin: auto;
+    }
 }
