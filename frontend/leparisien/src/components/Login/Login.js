@@ -9,7 +9,7 @@ const Login = () => {
 
         // validation du mot de passe 
 
-        // si 
+        // si le mot de passe et ok on récupere le token 
         const response = await axios.post("http://localhost:4200/users/login", {
             username,
             password,
@@ -18,7 +18,7 @@ const Login = () => {
         const token = response.data.token;
         localStorage.setItem("token", token);
 
-        // Redirect to the protected page
+        // Redirection vers la page protegé  
         window.location.href = "/Admin";
     };
 

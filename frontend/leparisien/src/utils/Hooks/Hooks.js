@@ -1,7 +1,7 @@
 //Importation des composants react
 import { useEffect, useState } from "react";
 import axios from "axios";
-//import { useLocation } from "react-router-dom";
+
 //Le custom hook useFetch est utiliser pour consommé l'url de l'api 
 export function useFetch(url) {
     const [data, setData] = useState({})

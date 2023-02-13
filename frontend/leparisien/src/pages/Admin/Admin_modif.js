@@ -1,10 +1,10 @@
+//Importation des composants react
 import { useFinditem } from '../../utils/Hooks/Hooks'
 import { useParams, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
 function AdminModif() {
-    //const [file, setFile] = useState();
     const [slug, setSlug] = useState();
     const [Article, setArticle] = useState();
     const [formDate, setFromDate] = useState();
@@ -12,6 +12,7 @@ function AdminModif() {
     const [body, setBody] = useState("");
     //Récuperation de l'id de l'URL 
     const { id } = useParams()
+    //Récuperation du token s'il existe 
     const token = localStorage.getItem('token');
     //Récuperation du Article par son id
     let { isLoadingArt, dataArt, errorArt } = useFinditem('http://localhost:4200/articles', id)

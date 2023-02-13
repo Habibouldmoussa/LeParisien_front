@@ -1,8 +1,10 @@
-
+//Importation des composants react
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../utils/Hooks/Hooks'
 import Resum from '../../components/Resum/Resum'
+
 function Search() {
+    //Récuperation du slog pour la recherche 
     const { q } = useParams()
     const { isLoading, data, error } = useFetch('http://localhost:4200/articles/q/' + q);
     if (error) {

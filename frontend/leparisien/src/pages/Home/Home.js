@@ -1,3 +1,4 @@
+//Importation des composants react
 import Resum from '../../components/Resum/Resum'
 import { useFetch } from '../../utils/Hooks/Hooks'
 

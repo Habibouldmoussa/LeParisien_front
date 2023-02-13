@@ -1,15 +1,11 @@
 import { useState } from "react";
 import axios from 'axios';
-//import { useCreatArticle } from '../../utils/Hooks/Hooks'
 import { Navigate } from "react-router-dom"
 function AdminAdd() {
-    //const [file, setFile] = useState();
     const [slug, setSlug] = useState();
     const [Article, setArticle] = useState();
     const [formDate, setFromDate] = useState();
-
     const token = localStorage.getItem('token');
-
 
     const handleUploadClick = async e => {
         e.preventDefault()
@@ -34,7 +30,6 @@ function AdminAdd() {
         if (e.target.name === 'title') {
             setSlug(e.target.value.replaceAll(" ", "_"),);
         } else if (e.target.name === 'image') {
-            //setFile(e.target.files[0])
             Data.append("image", e.target.files[0]);
         }
         const article = JSON.stringify({

@@ -1,6 +1,6 @@
+//Importation des composants react
 import Resum from '../../components/Resum/Resum'
 import { Link } from 'react-router-dom'
-//import { useState } from 'react'
 import { useFetch } from '../../utils/Hooks/Hooks'
 import axios from 'axios'
 import Login from '../../components/Login/Login'
@@ -8,7 +8,7 @@ import '../../utils/style/loader.css';
 
 
 function Admin() {
-    //const [isAuthenticated, setIsAuthenticated] = useState(false);
+    //récuperation du token s'il éxiste 
     const token = localStorage.getItem("token");
     const { isLoading, data, error } = useFetch('http://localhost:4200/articles/');
     if (error) {
