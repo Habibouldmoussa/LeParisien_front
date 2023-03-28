@@ -10,12 +10,12 @@ import '../../utils/style/loader.css';
 function Admin() {
     //récuperation du token s'il éxiste 
     const token = localStorage.getItem("token");
-    const { isLoading, data, error } = useFetch('http://localhost:4200/articles/');
+    const { isLoading, data, error } = useFetch('http://article-lp-api.onrender.com/articles/');
     if (error) {
         return <span>Oups il y a eu un problème</span>
     }
     const deleteArticle = (id) => {
-        axios.delete('http://localhost:4200/articles/' + id, {
+        axios.delete('http://article-lp-api.onrender.com/articles/' + id, {
             headers: {
                 'authorization': 'Bearer ' + token,
             },
