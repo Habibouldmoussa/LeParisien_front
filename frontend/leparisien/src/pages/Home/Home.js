@@ -4,7 +4,7 @@ import { useFetch } from '../../utils/Hooks/Hooks'
 
 
 function Home() {
-    const { isLoading, data, error } = useFetch('http://article-lp-api.onrender.com/articles/');
+    const { isLoading, data, error } = useFetch('https://article-lp-api.onrender.com/articles/');
     if (error) {
         return <span>Oups il y a eu un problème</span>
     }

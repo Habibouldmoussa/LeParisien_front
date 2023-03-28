@@ -6,7 +6,7 @@ function Article() {
     const { id } = useParams()
 
     //Récuperation du Article par son id
-    let { isLoadingArt, dataArt, errorArt } = useFinditem('http://article-lp-api.onrender.com/articles', id)
+    let { isLoadingArt, dataArt, errorArt } = useFinditem('https://article-lp-api.onrender.com/articles', id)
     if (errorArt) {
         return <span>Oups il y a eu un problème</span>
     }

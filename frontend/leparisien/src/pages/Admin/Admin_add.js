@@ -10,7 +10,7 @@ function AdminAdd() {
     const handleUploadClick = async e => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://article-lp-api.onrender.com/articles', formDate, {
+            const response = await axios.post('https://article-lp-api.onrender.com/articles', formDate, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'authorization': 'Bearer ' + token,

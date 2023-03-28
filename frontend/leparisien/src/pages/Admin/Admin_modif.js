@@ -15,7 +15,7 @@ function AdminModif() {
     //Récuperation du token s'il existe 
     const token = localStorage.getItem('token');
     //Récuperation du Article par son id
-    let { isLoadingArt, dataArt, errorArt } = useFinditem('http://article-lp-api.onrender.com/articles', id)
+    let { isLoadingArt, dataArt, errorArt } = useFinditem('https://article-lp-api.onrender.com/articles', id)
     useEffect(() => {
         setTitle(dataArt.title);
         setBody(dataArt.body);
@@ -26,7 +26,7 @@ function AdminModif() {
 
     const handleUploadClick = (e) => {
         e.preventDefault()
-        axios.put('http://article-lp-api.onrender.com/articles/' + id, formDate, {
+        axios.put('https://article-lp-api.onrender.com/articles/' + id, formDate, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': 'Bearer ' + token,
