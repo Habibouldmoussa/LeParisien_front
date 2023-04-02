@@ -6,7 +6,7 @@ import Resum from '../../components/Resum/Resum'
 function Search() {
     //Récuperation du slog pour la recherche 
     const { q } = useParams()
-    const { isLoading, data, error } = useFetch('http://localhost:4200/articles/q/' + q);
+    const { isLoading, data, error } = useFetch('https://article-lp-api.onrender.com/articles/q/' + q);
     if (error) {
         return <span>Oups il y a eu un problème</span>
     }

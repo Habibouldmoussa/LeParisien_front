@@ -14,7 +14,7 @@ function Header() {
     }
     const search = (e) => {
         e.preventDefault()
-        window.location.href = "/Recherche/" + query;
+        window.location.href = "/q/" + query;
     }
     return (
         <header className="header">
